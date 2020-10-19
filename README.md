@@ -15,7 +15,7 @@ Code used in this demo is derived from the original Temporal booking saga demo h
 
 This project is a proof of concept on how Temporal can be used with Quarkus in an effective way.
 
-Temporal is forked from the original Cadence project, and offers many features for building distrubuted applications using a workflow API. Because Temportal has a Java API, it's a good pairing with Quarkus for building reliable applications with Java microservices.
+Temporal is forked from the original Cadence project, and offers many features for building distrubuted applications using a workflow API. Because Temporal has a Java API, it's a good pairing with Quarkus for building reliable applications with Java microservices.
 
 Here is the original description of Temporal:
 
@@ -61,7 +61,3 @@ This will produce a Linux executable and a container that can be run locally in 
 ```
 ./mvnw clean install -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true
 ```
-
-## Note on gRPC
-
-Temporal's Java client depends on gRPC to communicate with the Temporal server. In order to support gRPC in Quarkus Native Image, *Triporal* relies only on Quarkus for gRPC support, and excludes gRPC dependencies for the Temporal SDK.
