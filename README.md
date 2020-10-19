@@ -1,5 +1,3 @@
-**Important: This project currently requires a custom build of Temporal to enable Native Image in Quarkus!**
-
 # Trip Booking Demo using Temporal and Quarkus
 
 ## *Triporal* Project Goals
@@ -45,6 +43,8 @@ For purely development purposes, you should run `./mvnw quarkus:dev` for each of
 * hotel-booking-service: **http://localhost:8083**
 
 ## Building *Triporal* Application Native Image
+
+**Important: This project currently requires a custom build of Temporal to enable Native Image in Quarkus!**
 
 Please see the official docs: https://quarkus.io/guides/building-native-image
 
