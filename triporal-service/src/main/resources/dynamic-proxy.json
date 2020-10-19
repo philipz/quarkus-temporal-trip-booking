@@ -1,0 +1,4 @@
+[
+    ["com.triporal.saga.TripBookingActivities", "io.temporal.internal.sync.AsyncInternal$AsyncMarker"],
+    ["com.triporal.saga.TripBookingWorkflow", "io.temporal.internal.sync.StubMarker"]
+]
