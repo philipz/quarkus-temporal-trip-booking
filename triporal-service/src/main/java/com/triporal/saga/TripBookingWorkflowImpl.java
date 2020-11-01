@@ -33,11 +33,10 @@ public class TripBookingWorkflowImpl implements TripBookingWorkflow {
   private final ActivityOptions options =
       ActivityOptions.newBuilder()
           .setScheduleToCloseTimeout(Duration.ofHours(1))
-          // disable retries for example to run faster
-          .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(1).build())
+          .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(2).build())
           .build();
-  private final TripBookingActivities activities =
-      Workflow.newActivityStub(TripBookingActivities.class, options);
+          
+  private final TripBookingActivities activities = Workflow.newActivityStub(TripBookingActivities.class, options);
 
   @Override
   public void bookTrip(String name) {

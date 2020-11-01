@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css" integrity="sha384-JW3PJkbqVWtBhuV/gsuyVVt3m/ecRJjwXC3gCXlTzZZV+zIEEl6AnryAriT7GWYm" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <style>
+        .form-control-lg {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18pt;
+            border: 0;
+            background-color: #e9ecef;
+        }
+        
+    
+    </style>
+
 </head>
 <body>
 
@@ -15,6 +28,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Jane Doe</a>
+                </li>
+            </ul>
+        </div>
       </nav>
 
     <div class="container">
@@ -30,17 +50,20 @@
                 <div class="form-group" style="text-align: center">
                     <label class="col-form-label col-form-label-lg" for="inputLarge">Starting from</label>
                     <input class="form-control form-control-lg" type="text" value="New York" id="start">
-                    <label class="col-form-label col-form-label-lg" for="inputLarge">Ending at</label>
+                    <label class="col-form-label col-form-label-lg" for="inputLarge">ending at</label>
                     <input class="form-control form-control-lg" type="text" value="Seattle" id="end">
-                    <label class="col-form-label col-form-label-lg" for="inputLarge">On</label>
+                    <label class="col-form-label col-form-label-lg" for="inputLarge">on</label>
                     <input class="form-control form-control-lg" type="date" id="date">
+                    <label class="col-form-label col-form-label-lg" for="inputLarge">for</label>
+                    <input class="form-control form-control-lg" type="text" value="3" id="nights">
+                    <label class="col-form-label col-form-label-lg" for="inputLarge">nights.</label>
                     <script>
                         document.getElementById('date').value = new Date().toISOString().substring(0, 10);
                     </script>
                 </div>
               </div>
               <div class="col-sm" style="text-align: center;">
-                <div style="height:145px"></div>
+                <div style="height:202px"></div>
                 <button type="button" class="btn btn-primary btn-lg">Book My Trip!</button>
               </div>
               <div class="col-sm">
@@ -67,16 +90,16 @@
                         <p class="card-text">Confirmation: 2345678654324567</p>
                     </div>
                 </div>
+                <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Booking Error</div>
+                    <div class="card-body">
+                        <p class="card-text">There was an error booking your trip. We apologize for the inconvenience. Please try again.</p>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
 
-
-
-
-        
-
-        
     <!--
         <div class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>

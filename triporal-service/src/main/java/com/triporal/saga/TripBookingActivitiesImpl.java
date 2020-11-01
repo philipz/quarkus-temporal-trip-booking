@@ -21,8 +21,11 @@ package com.triporal.saga;
 
 import java.util.UUID;
 
+import javax.inject.Singleton;
+
 import io.quarkus.runtime.annotations.RegisterForReflection;
 
+@Singleton // Activities are stateless and thread safe. So a shared instance is used.
 @RegisterForReflection
 public class TripBookingActivitiesImpl implements TripBookingActivities {
   @Override
