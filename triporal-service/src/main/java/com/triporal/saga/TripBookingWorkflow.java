@@ -19,6 +19,8 @@
 
 package com.triporal.saga;
 
+import com.triporal.model.HotelBooking;
+
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.temporal.workflow.WorkflowInterface;
 import io.temporal.workflow.WorkflowMethod;
@@ -27,5 +29,5 @@ import io.temporal.workflow.WorkflowMethod;
 @WorkflowInterface
 public interface TripBookingWorkflow {
   @WorkflowMethod
-  void bookTrip(String name);
+  HotelBooking bookTrip(String name);
 }

@@ -21,13 +21,24 @@ package com.triporal.saga;
 
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import com.triporal.client.HotelBookingService;
+import com.triporal.model.HotelBooking;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
 
 @Singleton // Activities are stateless and thread safe. So a shared instance is used.
 @RegisterForReflection
 public class TripBookingActivitiesImpl implements TripBookingActivities {
+
+  @Inject
+  @RestClient
+  HotelBookingService hotelBookingService;
+
   @Override
   public String reserveCar(String name) {
     System.out.println("reserve car for '" + name + "'");
@@ -36,14 +47,19 @@ public class TripBookingActivitiesImpl implements TripBookingActivities {
 
   @Override
   public String bookFlight(String name) {
-    System.out.println("failing to book flight for '" + name + "'");
-    throw new RuntimeException("Flight booking did not work");
+    //System.out.println("failing to book flight for '" + name + "'");
+    return UUID.randomUUID().toString();
+    //throw new RuntimeException("Flight booking did not work");
   }
 
   @Override
-  public String bookHotel(String name) {
-    System.out.println("booking hotel for '" + name + "'");
-    return UUID.randomUUID().toString();
+  public HotelBooking bookHotel(String transactionId) {
+
+    String dateStr = "30-10-2020";
+    int nights = 3;
+    String city = "Seattle";
+
+    return hotelBookingService.book(transactionId, dateStr, nights, city);
   }
 
   @Override

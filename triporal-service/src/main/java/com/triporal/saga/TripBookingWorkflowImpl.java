@@ -27,6 +27,8 @@ import io.temporal.workflow.Saga;
 import io.temporal.workflow.Workflow;
 import java.time.Duration;
 
+import com.triporal.model.HotelBooking;
+
 @RegisterForReflection
 public class TripBookingWorkflowImpl implements TripBookingWorkflow {
 
@@ -35,11 +37,11 @@ public class TripBookingWorkflowImpl implements TripBookingWorkflow {
           .setScheduleToCloseTimeout(Duration.ofHours(1))
           .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(2).build())
           .build();
-          
+
   private final TripBookingActivities activities = Workflow.newActivityStub(TripBookingActivities.class, options);
 
   @Override
-  public void bookTrip(String name) {
+  public HotelBooking bookTrip(String name) {
     // Configure SAGA to run compensation activities in parallel
     Saga.Options sagaOptions = new Saga.Options.Builder().setParallelCompensation(true).build();
     Saga saga = new Saga(sagaOptions);
@@ -47,11 +49,13 @@ public class TripBookingWorkflowImpl implements TripBookingWorkflow {
       String carReservationID = activities.reserveCar(name);
       saga.addCompensation(activities::cancelCar, carReservationID, name);
 
-      String hotelReservationID = activities.bookHotel(name);
-      saga.addCompensation(activities::cancelHotel, hotelReservationID, name);
+      HotelBooking hotelBooking = activities.bookHotel(name);
+      saga.addCompensation(activities::cancelHotel, hotelBooking.transactionId, name);
 
       String flightReservationID = activities.bookFlight(name);
       saga.addCompensation(activities::cancelFlight, flightReservationID, name);
+
+      return hotelBooking;
     } catch (ActivityFailure e) {
       saga.compensate();
       throw e;

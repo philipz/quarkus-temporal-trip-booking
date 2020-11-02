@@ -19,6 +19,8 @@
 
 package com.triporal.saga;
 
+import com.triporal.model.HotelBooking;
+
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.temporal.activity.ActivityInterface;
 
@@ -45,10 +47,10 @@ public interface TripBookingActivities {
   /**
    * Request a hotel reservation.
    *
-   * @param name customer name
-   * @return reservationID
+   * @param transactionId
+   * @return HotelBooking
    */
-  String bookHotel(String name);
+  HotelBooking bookHotel(String transactionId);
 
   /**
    * Cancel a flight reservation.
