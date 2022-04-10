@@ -23,21 +23,19 @@ Here is the original description of Temporal:
 
 ## Running Temporal Locally with Docker
 
-Please see the official docs for more information: https://docs.temporal.io/docs/install-temporal-server
+Please see https://github.com/temporalio/docker-compose
 
 ```
-curl -L https://github.com/temporalio/temporal/releases/latest/download/docker.tar.gz | tar -xz --strip-components 1 docker/docker-compose.yml
-
 docker-compose up
 ```
 
-* Temporal Web UI **http://localhost:8088**
+* Temporal Web UI **http://localhost:8080**
 
 ## Running *Triporal* Application Locally with Quarkus
 
 For purely development purposes, you should run `./mvnw quarkus:dev` for each of the 4 underlying projects. The ports have been preconfigured for development mode:
 
-* triporal-service UI: **http://localhost:8080**
+* TODO: triporal-service UI: **http://localhost:8000**
 * car-booking-service: **http://localhost:8081**
 * flight-booking-service: **http://localhost:8082**
 * hotel-booking-service: **http://localhost:8083**

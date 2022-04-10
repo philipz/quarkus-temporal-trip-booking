@@ -33,6 +33,7 @@ You can create a native executable using:
 ./mvnw package -Pnative
 ```
 
+TODO: Currently broken native build
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
 ```shell script
 ./mvnw package -Pnative -Dquarkus.native.container-build=true
